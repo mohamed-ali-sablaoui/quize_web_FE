@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atelier Web — Quiz HTML5 & CSS3</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{--night:#18231f;--paper:#f5f2e9;--card:#fffdf7;--muted:#6c756d;--line:#d9ded3;--green:#c9f36b;--green-dark:#355326;--orange:#e46e4e;--blue:#b9d8ed;--shadow:0 18px 55px #18231f0d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--night);font-family:'DM Sans',sans-serif}button,input{font:inherit}button{cursor:pointer}.topline{height:5px;background:linear-gradient(90deg,var(--green) 0 42%,var(--orange) 42% 68%,var(--blue) 68%)}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}.nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.04em}.brand-mark{display:grid;place-items:center;width:38px;height:38px;background:var(--night);color:var(--green);border-radius:12px;font:500 16px 'DM Mono',monospace}.brand small{display:block;font-size:10px;letter-spacing:.16em;color:var(--muted);font-weight:700;margin-top:2px}.nav-tag{font:12px 'DM Mono',monospace;border:1px solid var(--line);padding:9px 12px;border-radius:999px;color:var(--muted)}.hero{padding:65px 0 34px;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}.eyebrow{font:700 11px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.15em;color:#647a4c;display:flex;align-items:center;gap:10px}.eyebrow:before{content:'';width:24px;height:2px;background:var(--orange)}h1{font:800 clamp(38px,6vw,69px)/1.02 Manrope,sans-serif;letter-spacing:-.075em;margin:19px 0 20px;max-width:680px}h1 em{font-style:normal;position:relative;z-index:0;white-space:nowrap}h1 em:after{content:'';position:absolute;left:-2px;right:-4px;bottom:4px;height:13px;background:var(--green);z-index:-1;transform:rotate(-1.6deg)}.intro{max-width:560px;color:var(--muted);font-size:16px;line-height:1.8;margin:0}.hero-art{background:var(--night);color:#fffdf7;min-height:265px;border-radius:28px;padding:27px;position:relative;overflow:hidden;transform:rotate(1deg);box-shadow:var(--shadow)}.hero-art:after{content:'</>';position:absolute;right:-8px;bottom:-48px;font:800 150px 'DM Mono',monospace;color:#ffffff0b}.art-top{display:flex;justify-content:space-between;align-items:center;color:#c3cbbf;font:11px 'DM Mono',monospace}.live-dot{width:8px;height:8px;background:var(--green);border-radius:50%;display:inline-block;margin-right:7px}.code-lines{font:13px/2 'DM Mono',monospace;margin-top:28px;position:relative;z-index:1}.code-lines .n{color:#78877c;display:inline-block;width:27px}.code-lines .tag{color:var(--green)}.code-lines .attr{color:#f3a88e}.code-lines .val{color:#b9d8ed}.art-sticker{position:absolute;right:25px;bottom:23px;background:var(--green);color:var(--night);font:800 11px 'DM Mono',monospace;padding:9px 12px;transform:rotate(-5deg);z-index:2}.stats{display:flex;gap:25px;margin-top:28px}.stat strong{display:block;font:800 23px Manrope;letter-spacing:-.05em}.stat span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:700}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:25px 0 16px}.section-head h2{font:800 25px Manrope;letter-spacing:-.05em;margin:0}.section-head p{margin:4px 0 0;color:var(--muted);font-size:13px}.setup{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-bottom:70px}.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:25px;box-shadow:var(--shadow)}.panel h3{margin:0 0 18px;font:800 16px Manrope;letter-spacing:-.03em}.topics{display:grid;gap:10px}.topic{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:13px;padding:13px;cursor:pointer;transition:.18s;background:#fffefa}.topic:hover{border-color:#a2b58a;transform:translateY(-1px)}.topic input{accent-color:#355326;width:17px;height:17px}.topic .emoji{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:#edf1e6;font-size:18px;flex-shrink:0}.topic b{display:block;font-size:13px}.topic small{display:block;color:var(--muted);font-size:11px;margin-top:3px}.topic .num{margin-left:auto;font:11px 'DM Mono',monospace;color:var(--muted)}.fields{display:grid;gap:19px}.field label{display:block;font-weight:700;font-size:12px;margin-bottom:9px}.segmented{display:flex;gap:7px;flex-wrap:wrap}.segmented input{position:absolute;opacity:0;pointer-events:none}.segmented label{margin:0;padding:10px 13px;border:1px solid var(--line);border-radius:10px;font-size:12px;color:var(--muted);cursor:pointer;transition:.15s}.segmented input:checked+label{background:var(--night);border-color:var(--night);color:white}.countline{display:flex;align-items:center;gap:13px}.countline input{width:100%;accent-color:#355326}.countnum{background:#edf1e6;border-radius:10px;padding:8px 12px;font:700 13px 'DM Mono',monospace;min-width:48px;text-align:center}.type-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.type{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}.type input{accent-color:#355326}.start-row{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:3px}.note{font-size:12px;color:var(--muted);line-height:1.6;max-width:490px}.primary{border:0;background:var(--green);color:var(--night);padding:16px 23px;border-radius:13px;font-weight:800;box-shadow:0 5px 0 #a3cc4f;transition:.16s}.primary:hover{transform:translateY(-2px);box-shadow:0 7px 0 #a3cc4f}.primary:active{transform:translateY(2px);box-shadow:0 2px 0 #a3cc4f}.secondary{background:transparent;border:1px solid var(--line);padding:12px 15px;border-radius:11px;font-weight:700;font-size:12px}.quiz-view{display:none;padding:35px 0 75px}.quiz-top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:16px}.quiz-kicker{font:11px 'DM Mono',monospace;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}.progress-wrap{height:5px;background:#e3e6dc;border-radius:99px;overflow:hidden;margin-bottom:28px}.progress{height:100%;width:0;background:var(--orange);transition:width .3s}.qcard{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:clamp(22px,5vw,44px);box-shadow:var(--shadow);max-width:850px;margin:auto}.qmeta{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.pill{background:#edf1e6;color:#4c6441;border-radius:999px;padding:6px 10px;font:10px 'DM Mono',monospace}.qtitle{font:800 clamp(22px,3.5vw,33px)/1.3 Manrope;letter-spacing:-.05em;margin:22px 0}.codebox{background:#1d2924;color:#eaf1e6;padding:17px 20px;border-radius:13px;font:13px/1.8 'DM Mono',monospace;overflow:auto;margin:16px 0;white-space:pre-wrap}.answers{display:grid;gap:10px;margin-top:23px}.answer{display:flex;align-items:flex-start;gap:12px;padding:15px;border:1px solid var(--line);border-radius:13px;cursor:pointer;background:#fffefa;transition:.15s}.answer:hover{border-color:#8da279;background:#f8faef}.answer input{accent-color:#355326;margin-top:4px}.answer.correct{border-color:#6a9b4f;background:#eff7e8}.answer.wrong{border-color:#d96c55;background:#fff0eb}.feedback{display:none;margin-top:18px;border-radius:13px;padding:16px;background:#edf1e6;font-size:13px;line-height:1.7}.feedback.show{display:block}.feedback.bad{background:#fff0eb}.actions{display:flex;justify-content:space-between;gap:12px;margin-top:25px}.actions .primary{padding:13px 20px}.result{display:none;max-width:780px;margin:45px auto 75px;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:25px;padding:clamp(25px,5vw,55px);box-shadow:var(--shadow)}.result .score{font:800 clamp(55px,10vw,90px)/1 Manrope;letter-spacing:-.08em;margin:17px 0}.result h2{font:800 29px Manrope;letter-spacing:-.05em}.result p{color:var(--muted);line-height:1.7}.result-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:23px}.footer{border-top:1px solid var(--line);padding:23px 0 30px;color:var(--muted);font-size:11px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.footer b{color:var(--night)}.toast{display:none;color:#8b4934;font-size:12px;margin-top:12px}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:42px;gap:25px}.hero-art{min-height:220px}.setup{grid-template-columns:1fr}.start-row{grid-column:auto;align-items:stretch;flex-direction:column}.primary{width:100%}.stats{gap:16px}.nav-tag{font-size:10px}.section-head{align-items:start;flex-direction:column}.qcard{padding:22px}.actions{flex-direction:column-reverse}.actions button{width:100%}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="topline"></div>
+<div class="wrap">
+<header class="nav">
+  <div class="brand"><div class="brand-mark">&lt;/&gt;</div><div>Atelier Web<small>RÉVISION • HTML5 / CSS3</small></div></div>
+  <div class="nav-tag">ÉDITION ÉTUDIANTE · 01</div>
+</header>
+<section id="landing">
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Ton terrain d'entraînement</div>
+      <h1>Comprendre le web.<br><em>Coder avec méthode.</em></h1>
+      <p class="intro">Un quiz interactif construit autour de ton cours : notions du Web, architecture des applications, HTML5 et CSS3. Choisis ton parcours, réponds, puis comprends tes erreurs grâce aux corrections.</p>
+      <div class="stats"><div class="stat"><strong>03</strong><span>blocs de cours</span></div><div class="stat"><strong>Mix</strong><span>QCM + code</span></div><div class="stat"><strong>100%</strong><span>correction</span></div></div>
+    </div>
+    <aside class="hero-art">
+      <div class="art-top"><span><i class="live-dot"></i>WORKSPACE / WEB</span><span>01—03</span></div>
+      <div class="code-lines"><div><span class="n">01</span><span class="tag">&lt;section</span> <span class="attr">class</span>=<span class="val">"learning"</span><span class="tag">&gt;</span></div><div><span class="n">02</span> &nbsp;<span class="tag">&lt;h1&gt;</span>Practice makes progress<span class="tag">&lt;/h1&gt;</span></div><div><span class="n">03</span> &nbsp;<span class="tag">&lt;style&gt;</span></div><div><span class="n">04</span> &nbsp;&nbsp;<span class="attr">.learning</span> { <span class="val">display: grid;</span> }</div><div><span class="n">05</span> &nbsp;<span class="tag">&lt;/style&gt;</span></div><div><span class="n">06</span><span class="tag">&lt;/section&gt;</span></div></div>
+      <div class="art-sticker">LEARN BY DOING ↗</div>
+    </aside>
+  </div>
+  <div class="section-head"><div><h2>Configure ta séance</h2><p>Tu peux sélectionner plusieurs chapitres pour créer un quiz sur mesure.</p></div></div>
+  <div class="setup">
+    <section class="panel">
+      <h3>01 / Choisis les thèmes</h3>
+      <div class="topics">
+        <label class="topic"><input type="checkbox" name="topic" value="web" checked><span class="emoji">🌐</span><span><b>Web & architecture</b><small>Internet, WWW, Web 1.0–3.0, architectures</small></span><span class="num">01</span></label>
+        <label class="topic"><input type="checkbox" name="topic" value="html" checked><span class="emoji">〈/〉</span><span><b>HTML5</b><small>Structure, texte, listes, liens, images, tableaux, formulaires</small></span><span class="num">02</span></label>
+        <label class="topic"><input type="checkbox" name="topic" value="css" checked><span class="emoji">✳</span><span><b>CSS3</b><small>Syntaxe, sélecteurs, texte, arrière-plans, bordures, mise en page</small></span><span class="num">03</span></label>
+      </div>
+    </section>
+    <section class="panel">
+      <h3>02 / Règle les paramètres</h3>
+      <div class="fields">
+        <div class="field"><label>NIVEAU</label><div class="segmented"><input id="easy" type="radio" name="level" value="Facile"><label for="easy">Échauffement</label><input id="medium" type="radio" name="level" value="Moyen" checked><label for="medium">Intermédiaire</label><input id="hard" type="radio" name="level" value="Difficile"><label for="hard">Challenge</label></div></div>
+        <div class="field"><label>NOMBRE DE QUESTIONS</label><div class="countline"><input id="count" type="range" min="5" max="20" step="5" value="10"><span class="countnum" id="countNum">10</span></div></div>
+        <div class="field"><label>TYPE DE QUESTIONS</label><div class="type-grid"><label class="type"><input type="checkbox" name="kind" value="qcm" checked> QCM</label><label class="type"><input type="checkbox" name="kind" value="code" checked> Lecture de code</label><label class="type"><input type="checkbox" name="kind" value="debug" checked> Détecter l'erreur</label><label class="type"><input type="checkbox" name="kind" value="write" checked> Écrire du code</label></div></div>
+      </div>
+      <div class="toast" id="setupError">Choisis au moins un thème et un type de question.</div>
+    </section>
+    <div class="start-row"><p class="note">Conseil : commence par 5 questions sur un seul thème, puis augmente la difficulté. Les réponses et les explications s'affichent pendant la séance.</p><button class="primary" id="start">Lancer le quiz&nbsp; ↗</button></div>
+  </div>
+</section>
+<section id="quiz" class="quiz-view">
+  <div class="quiz-top"><button class="secondary" id="quit">← Paramètres</button><div class="quiz-kicker" id="quizKicker">HTML5 / QUESTION 01</div><div class="quiz-kicker" id="scoreLive">SCORE 0</div></div>
+  <div class="progress-wrap"><div class="progress" id="progress"></div></div>
+  <article class="qcard" id="qcard"></article>
+</section>
+<section id="result" class="result">
+  <div class="eyebrow" style="justify-content:center">Séance terminée</div><h2 id="resultTitle">Bien joué !</h2><div class="score" id="finalScore">0/10</div><p id="resultText"></p><div class="result-actions"><button class="primary" id="review">Voir les corrections</button><button class="secondary" id="again">Nouvelle séance ↗</button></div>
+</section>
+<footer class="footer"><span><b>Atelier Web</b> — Réviser, tester, comprendre.</span><span>HTML5 · CSS3 · Architecture Web</span></footer>
+</div>
+<script>
+const bank = [
+{t:'web',l:'Facile',k:'qcm',q:'Quel est le rôle principal du Web ?',a:['Un système de pages et de ressources reliées par des hyperliens','Un langage de programmation uniquement','Un système d’exploitation','Un type de câble réseau'],c:0,e:'Le Web est un système de ressources accessibles via Internet et reliées notamment par des hyperliens. Internet est l’infrastructure réseau ; le Web est un service qui l’utilise.'},
+{t:'web',l:'Facile',k:'qcm',q:'Que signifie WWW ?',a:['World Wide Web','World Web Window','Wide World Wire','Web World Work'],c:0,e:'WWW signifie World Wide Web.'},
+{t:'web',l:'Facile',k:'qcm',q:'Le Web 1.0 est principalement décrit dans le cours comme…',a:['Collaboratif et social','Statique ou passif','Sémantique','Une application mobile'],c:1,e:'Dans le cours, le Web 1.0 (1991–1999) est présenté comme le Web statique ou passif.'},
+{t:'web',l:'Moyen',k:'qcm',q:'Quel modèle est associé au Web 2.0 dans le cours ?',a:['Web sémantique','Web statique','Web collaboratif ou social','Web hors ligne'],c:2,e:'Le cours associe le Web 2.0 (2000–2009) au Web collaboratif ou social.'},
+{t:'web',l:'Moyen',k:'qcm',q:'Dans une architecture client-serveur, le client…',a:['Demande un service ou une ressource','Remplace toujours la base de données','Est obligatoirement un routeur','Écrit le protocole TCP/IP'],c:0,e:'Le client formule une demande ; le serveur fournit le service ou la ressource demandé.'},
+{t:'web',l:'Moyen',k:'qcm',q:'Dans une architecture trois tiers, les responsabilités sont séparées en…',a:['Clavier, écran, souris','Présentation, traitement, données','HTML, URL, navigateur','Client, câble, imprimante'],c:1,e:'Le modèle trois tiers distingue généralement la présentation, le traitement applicatif et la gestion des données.'},
+{t:'web',l:'Difficile',k:'qcm',q:'Quel avantage est lié à une architecture en n-tiers ?',a:['Aucune séparation des responsabilités','Une séparation plus poussée des couches/services','L’absence de serveur','L’interdiction des bases de données'],c:1,e:'L’architecture n-tiers répartit l’application en plusieurs couches ou niveaux afin de séparer les responsabilités.'},
+{t:'web',l:'Difficile',k:'code',q:'On décrit une application avec interface, logique métier et base de données séparées. Quel modèle correspond le mieux ?',a:['Architecture trois tiers','Page HTML seule','Web 1.0','Architecture sans tiers'],c:0,e:'La description correspond aux trois niveaux présentation, traitement et données.',code:'Présentation → Logique métier → Base de données'},
+{t:'html',l:'Facile',k:'qcm',q:'Quel élément contient le contenu visible de la page HTML ?',a:['<head>','<body>','<title>','<meta>'],c:1,e:'Le contenu de la page est placé dans <body>. La partie <head> contient notamment les métadonnées et le titre du document.'},
+{t:'html',l:'Facile',k:'qcm',q:'Quelle déclaration annonce un document HTML5 ?',a:['<html5>','<!DOCTYPE html>','<doctype=5>','<head html>'],c:1,e:'La déclaration HTML5 usuelle est <!DOCTYPE html>.'},
+{t:'html',l:'Facile',k:'qcm',q:'Quel élément représente un paragraphe ?',a:['<p>','<para>','<text>','<pg>'],c:0,e:'La balise <p> délimite un paragraphe.'},
+{t:'html',l:'Facile',k:'qcm',q:'Quel attribut d’un lien indique sa destination ?',a:['src','alt','href','action'],c:2,e:'L’attribut href contient l’adresse ou la destination du lien.'},
+{t:'html',l:'Facile',k:'qcm',q:'Quel attribut fournit un texte alternatif pour une image ?',a:['title','alt','href','value'],c:1,e:'L’attribut alt donne une alternative textuelle à l’image.'},
+{t:'html',l:'Moyen',k:'qcm',q:'Quelle balise crée une liste non ordonnée ?',a:['<ol>','<ul>','<li>','<dl>'],c:1,e:'<ul> crée une liste non ordonnée ; chaque élément de liste est généralement représenté par <li>.'},
+{t:'html',l:'Moyen',k:'qcm',q:'Quel élément contient le titre affiché dans l’onglet du navigateur ?',a:['<h1>','<header>','<title>','<caption>'],c:2,e:'<title> est placé dans <head> et définit le titre du document affiché par le navigateur.'},
+{t:'html',l:'Moyen',k:'qcm',q:'Quelle paire de balises crée une ligne de tableau ?',a:['<td>...</td>','<tr>...</tr>','<th>...</th>','<table-row>'],c:1,e:'<tr> représente une ligne ; <td> représente une cellule de données et <th> une cellule d’en-tête.'},
+{t:'html',l:'Moyen',k:'code',q:'Que produit ce code ?',a:['Un lien vers la page accueil.html','Une image','Un formulaire','Un titre de niveau 1'],c:0,e:'La balise <a> avec href crée un lien hypertexte vers la ressource indiquée.',code:'<a href="accueil.html">Accueil</a>'},
+{t:'html',l:'Moyen',k:'qcm',q:'Quel attribut de <form> indique l’adresse à laquelle les données sont envoyées ?',a:['href','src','action','alt'],c:2,e:'L’attribut action indique l’URL de traitement du formulaire.'},
+{t:'html',l:'Difficile',k:'debug',q:'Quelle correction faut-il apporter à ce lien pour qu’il ait une destination ?',a:['Remplacer href par src','Ajouter une valeur à href','Supprimer la balise fermante','Utiliser <img> à la place'],c:1,e:'L’attribut href doit recevoir une destination, par exemple href="https://example.com".',code:'<a href="">Visiter le site</a>'},
+{t:'html',l:'Difficile',k:'code',q:'Quelle balise sémantique convient le mieux à un contenu autonome pouvant être réutilisé indépendamment ?',a:['<article>','<br>','<span>','<meta>'],c:0,e:'<article> représente un contenu autonome, par exemple un article ou une publication.'},
+{t:'html',l:'Facile',k:'write',q:'Écris le code HTML minimal qui affiche le titre « Ma page » dans l’onglet et le texte « Bonjour » dans la page.',a:['<!DOCTYPE html><html><head><title>Ma page</title></head><body>Bonjour</body></html>','<title>Bonjour</title>','<body><head>Ma page</head></body>','<html><p>Ma page</p></html>'],c:0,e:'Le document comprend DOCTYPE, html, head avec title, puis body avec le contenu visible.',code:'Titre : Ma page • Contenu : Bonjour'},
+{t:'html',l:'Difficile',k:'write',q:'Pour afficher une image nommée logo.png avec un texte alternatif « Logo », quelle syntaxe est correcte ?',a:['<img src="logo.png" alt="Logo">','<image href="logo.png">','<img href="logo.png">','<src img="logo.png" alt="Logo">'],c:0,e:'L’élément img utilise src pour le fichier et alt pour son alternative textuelle.',code:'<img src="logo.png" alt="Logo">'},
+{t:'css',l:'Facile',k:'qcm',q:'À quoi sert principalement CSS ?',a:['À structurer les données d’une base','À mettre en forme et disposer le contenu HTML','À remplacer le navigateur','À créer le protocole HTTP'],c:1,e:'CSS contrôle l’apparence et la mise en page, tandis que HTML structure le contenu.'},
+{t:'css',l:'Facile',k:'qcm',q:'Quelle syntaxe CSS est correcte ?',a:['p = color: red;','p { color: red; }','{p: red;color}','p (color red)'],c:1,e:'Une règle CSS comporte un sélecteur puis un bloc de déclarations entre accolades ; chaque déclaration utilise propriété: valeur;'},
+{t:'css',l:'Facile',k:'qcm',q:'Quel sélecteur cible un élément dont id vaut menu ?',a:['.menu','#menu','menu*','@menu'],c:1,e:'Le symbole # cible un identifiant id ; le point . cible une classe.'},
+{t:'css',l:'Facile',k:'qcm',q:'Quel sélecteur cible tous les éléments de classe carte ?',a:['#carte','.carte','carte:','*carte'],c:1,e:'Le sélecteur de classe commence par un point : .carte.'},
+{t:'css',l:'Moyen',k:'qcm',q:'Quelle propriété change la couleur du texte ?',a:['background-color','font-style','color','text-align'],c:2,e:'color définit la couleur du texte ; background-color définit la couleur d’arrière-plan.'},
+{t:'css',l:'Moyen',k:'qcm',q:'Quelle propriété règle l’espace intérieur entre le contenu et la bordure ?',a:['margin','padding','outline','gap'],c:1,e:'padding est l’espace intérieur ; margin est l’espace extérieur autour de l’élément.'},
+{t:'css',l:'Moyen',k:'qcm',q:'Quel affichage permet d’organiser facilement des éléments en grille ?',a:['display: grid','display: image','position: grid','float: grid'],c:0,e:'display: grid active le modèle de mise en page CSS Grid.'},
+{t:'css',l:'Moyen',k:'code',q:'Quel sera le résultat de cette règle ?',a:['Le texte des paragraphes devient rouge','Le fond devient rouge','Tous les titres sont rouges','La taille du texte devient rouge'],c:0,e:'Le sélecteur p cible les paragraphes et color définit la couleur du texte.',code:'p { color: red; }'},
+{t:'css',l:'Moyen',k:'qcm',q:'Quelle propriété aligne le texte au centre ?',a:['font-weight: center','text-align: center','align: text','content-align: middle'],c:1,e:'text-align: center centre le texte dans son contexte de mise en page.'},
+{t:'css',l:'Difficile',k:'debug',q:'Quelle est l’erreur dans cette déclaration ?',a:['Il manque un sélecteur','Il faut écrire color = blue','La propriété doit être font-color','La valeur blue est toujours interdite'],c:1,e:'En CSS, la syntaxe d’une déclaration utilise deux-points et non le signe égal.',code:'p { color = blue; }'},
+{t:'css',l:'Difficile',k:'qcm',q:'Dans le modèle de boîte CSS classique, quels éléments entourent le contenu ?',a:['Marge intérieure, bordure, marge extérieure','Titre, paragraphe, lien','HTML, HTTP, URL','Largeur, police, couleur uniquement'],c:0,e:'Le modèle de boîte distingue content, padding, border et margin.'},
+{t:'css',l:'Difficile',k:'code',q:'Quel sélecteur cible uniquement les paragraphes placés à l’intérieur d’un élément .intro ?',a:['intro p','.intro p','#intro.p','p.intro only'],c:1,e:'L’espace entre .intro et p sélectionne les paragraphes descendants de l’élément portant la classe intro.',code:'.intro p { color: #355326; }'},
+{t:'css',l:'Difficile',k:'write',q:'Écris une règle CSS qui met le fond de body en beige et le texte en gris foncé.',a:['body { background-color: beige; color: #333; }','body { font: beige; text: #333; }','body = beige #333','body { color-background: beige; }'],c:0,e:'background-color règle le fond et color règle la couleur du texte.',code:'body { background-color: beige; color: #333; }'},
+{t:'css',l:'Facile',k:'qcm',q:'Quelle propriété définit la taille du texte ?',a:['font-size','text-style','size-font','font-height'],c:0,e:'font-size définit la taille des caractères.'},
+{t:'css',l:'Moyen',k:'qcm',q:'Quelle valeur de display fait généralement apparaître les éléments les uns à côté des autres dans un conteneur flexible ?',a:['display: flex','display: block-inline-flexible','display: side','position: flex'],c:0,e:'display: flex active Flexbox pour organiser les éléments d’un conteneur.'},
+{t:'html',l:'Moyen',k:'qcm',q:'Quelle balise représente un titre de premier niveau ?',a:['<title>','<h1>','<head>','<strong>'],c:1,e:'<h1> est un titre de niveau 1 dans le contenu. <title> est le titre du document dans head.'},
+{t:'html',l:'Difficile',k:'debug',q:'Quelle version corrige le mieux cette structure de tableau ?',a:['<table><tr><td>Nom</td></tr></table>','<tr><table><td>Nom</td></table>','<table><td><tr>Nom</tr></td></table>','<td>Nom</td>'],c:0,e:'La ligne tr se place à l’intérieur de table, puis contient la cellule td.',code:'<table><td><tr>Nom</tr></td></table>'},
+{t:'web',l:'Facile',k:'qcm',q:'Quel protocole est mentionné dans l’histoire d’Internet avec ARPANET dans les années 70/80 ?',a:['TCP/IP','CSS','HTML5 uniquement','JPEG'],c:0,e:'Le cours relie l’évolution d’ARPANET et d’Internet à l’adoption du protocole TCP/IP.'},
+{t:'web',l:'Difficile',k:'qcm',q:'Les niveaux d’abstraction d’une application servent notamment à…',a:['Séparer les responsabilités','Rendre le code invisible au navigateur','Supprimer les échanges réseau','Remplacer les utilisateurs'],c:0,e:'La séparation en niveaux permet d’organiser les responsabilités d’une application.'},
+{t:'html',l:'Moyen',k:'qcm',q:'Quelle balise crée un saut de ligne sans créer un nouveau paragraphe ?',a:['<br>','<p>','<hr>','<li>'],c:0,e:'<br> provoque un saut de ligne. <p> définit un paragraphe et <hr> une séparation thématique.'},
+{t:'html',l:'Difficile',k:'write',q:'Écris une liste non ordonnée contenant « HTML » et « CSS ».',a:['<ul><li>HTML</li><li>CSS</li></ul>','<ol>HTML CSS</ol>','<list><item>HTML</item><item>CSS</item></list>','<ul><p>HTML CSS</ul>'],c:0,e:'Une liste non ordonnée utilise ul et chaque élément utilise li.',code:'<ul><li>HTML</li><li>CSS</li></ul>'},
+{t:'css',l:'Difficile',k:'write',q:'Écris une règle pour donner une bordure noire de 1px à toutes les images.',a:['img { border: 1px solid black; }','img { outline = black; }','image { border-color: 1px; }','img: border(black)'],c:0,e:'La propriété raccourcie border accepte notamment largeur, style et couleur.',code:'img { border: 1px solid black; }'},
+{t:'css',l:'Facile',k:'qcm',q:'Quel symbole commence un commentaire CSS ?',a:['<!-- -->','// commentaire','/* commentaire */','## commentaire'],c:2,e:'Un commentaire CSS s’écrit entre /* et */.'},
+{t:'html',l:'Moyen',k:'qcm',q:'Quel attribut sert à donner un identifiant à un élément HTML ?',a:['class','id','name-tag','key'],c:1,e:'id identifie un élément ; class permet de regrouper des éléments pour les cibler ensemble.'},
+{t:'web',l:'Moyen',k:'code',q:'Quel est le rôle de la couche de présentation dans une architecture trois tiers ?',a:['Interagir avec l’utilisateur et présenter les informations','Stocker seule toutes les données','Remplacer Internet','Gérer le câblage du réseau'],c:0,e:'La présentation est la couche avec laquelle l’utilisateur interagit ; les autres couches gèrent le traitement et les données.',code:'Utilisateur ↔ Présentation ↔ Traitement ↔ Données'},
+{t:'html',l:'Difficile',k:'qcm',q:'Dans un formulaire HTML, quel élément crée généralement une zone de saisie sur une seule ligne ?',a:['<input>','<textarea> uniquement','<formtext>','<label>'],c:0,e:'input crée divers champs de formulaire selon son attribut type. textarea permet une saisie multiligne.'},
+{t:'css',l:'Moyen',k:'qcm',q:'Quelle propriété modifie l’épaisseur du texte ?',a:['font-weight','font-size','text-decoration','letter-spacing'],c:0,e:'font-weight définit le poids du texte, par exemple normal ou bold.'},
+{t:'html',l:'Moyen',k:'qcm',q:'Quel élément est utilisé pour créer une cellule d’en-tête dans un tableau ?',a:['<td>','<th>','<thead-cell>','<caption>'],c:1,e:'th définit une cellule d’en-tête de tableau.'},
+{t:'css',l:'Difficile',k:'qcm',q:'Pourquoi le cours insiste-t-il sur la séparation HTML/CSS ?',a:['Pour séparer le contenu de son apparence et faciliter la maintenance','Pour supprimer toutes les balises HTML','Pour obliger chaque page à avoir des styles différents','Pour empêcher les mises à jour'],c:0,e:'Le cours présente CSS comme un moyen de dissocier le contenu de son apparence, de réutiliser des styles et de modifier plusieurs pages plus facilement.'}
+];
+const labels={web:'Web & architecture',html:'HTML5',css:'CSS3'};
+let quiz=[],idx=0,score=0,answers=[],reviewMode=false,finished=false;
+const $=id=>document.getElementById(id);
+$('count').addEventListener('input',e=>$('countNum').textContent=e.target.value);
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function startQuiz(){
+ const topics=[...document.querySelectorAll('input[name="topic"]:checked')].map(x=>x.value);
+ const kinds=[...document.querySelectorAll('input[name="kind"]:checked')].map(x=>x.value);
+ const level=document.querySelector('input[name="level"]:checked').value;
+ if(!topics.length||!kinds.length){$('setupError').style.display='block';return}
+ $('setupError').style.display='none';
+ let pool=bank.filter(q=>topics.includes(q.t)&&kinds.includes(q.k)&&(level==='Facile'||level==='Moyen'&&q.l!=='Difficile'||level==='Difficile'&&q.l!=='Facile'));
+ if(pool.length<Number($('count').value)) pool=bank.filter(q=>topics.includes(q.t)&&kinds.includes(q.k));
+ if(!pool.length){$('setupError').textContent='Aucune question pour cette combinaison. Choisis un autre type.';$('setupError').style.display='block';return}
+ quiz=shuffle(pool).slice(0,Math.min(Number($('count').value),pool.length));idx=0;score=0;answers=[];reviewMode=false;finished=false;
+ $('landing').style.display='none';$('result').style.display='none';$('quiz').style.display='block';renderQ();window.scrollTo({top:0,behavior:'smooth'});
+}
+function renderQ(){
+ const q=quiz[idx];$('quizKicker').textContent=labels[q.t].toUpperCase()+' / QUESTION '+String(idx+1).padStart(2,'0');$('scoreLive').textContent='SCORE '+score;$('progress').style.width=(idx/quiz.length*100)+'%';
+ let code=q.code?`<pre class="codebox">${esc(q.code)}</pre>`:'';
+ let options=q.k==='write'
+ ? `<textarea id="writtenCode" rows="5" placeholder="Écris ton code ici…" style="width:100%;resize:vertical;border:1px solid var(--line);border-radius:13px;padding:16px;background:#fffefa;color:var(--night);font:13px/1.7 'DM Mono',monospace" aria-label="Ton code"></textarea><p style="font-size:11px;color:var(--muted)">Astuce : écris les balises ou propriétés demandées. Après validation, tu verras une correction possible.</p>`
+ : q.a.map((a,i)=>`<label class="answer" data-opt="${i}"><input type="radio" name="answer" value="${i}"><span>${esc(a)}</span></label>`).join('');
+ $('qcard').innerHTML=`<div class="qmeta"><span class="pill">${labels[q.t]}</span><span class="pill">${q.l}</span><span class="pill">${({qcm:'QCM',code:'LECTURE DE CODE',debug:'DÉBOGAGE',write:'ÉCRITURE DE CODE'})[q.k]}</span></div><h2 class="qtitle">${esc(q.q)}</h2>${code}<div class="answers">${options}</div><div class="feedback" id="feedback"></div><div class="actions"><button class="secondary" id="skip">Passer</button><button class="primary" id="validate">Valider la réponse ↗</button></div>`;
+ $('validate').onclick=validate;$('skip').onclick=()=>advance(false);
+}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function validate(){
+ const q=quiz[idx];let choice,ok;
+ if(q.k==='write'){
+   const typed=$('writtenCode').value.trim();
+   if(!typed)return;
+   const normalize=x=>x.toLowerCase().replace(/\\s+/g,'').replace(/["']/g,'').replace(/;+/g,';');
+   const expected=normalize(q.a[q.c]),actual=normalize(typed);
+   const tokens=expected.match(/<[^>]+>|[a-z-]+:[^;{}]+;?/g)||[];
+   const essential=tokens.filter(x=>x.length>2).slice(0,7);
+   ok=actual===expected || (essential.length>0&&essential.filter(x=>actual.includes(x)).length>=Math.max(2,Math.ceil(essential.length*.7)));
+   choice=ok?q.c:-1;
+   if(answers[idx]===undefined&&ok)score++;
+   answers[idx]={choice,ok,typed};
+   $('writtenCode').disabled=true;
+ }else{
+   const selected=document.querySelector('input[name="answer"]:checked');if(!selected)return;
+   choice=Number(selected.value);ok=choice===q.c;
+   if(answers[idx]===undefined&&ok)score++;
+   answers[idx]={choice,ok};
+   document.querySelectorAll('.answer').forEach(el=>{const n=Number(el.dataset.opt);el.classList.toggle('correct',n===q.c);el.classList.toggle('wrong',n===choice&&!ok);el.querySelector('input').disabled=true});
+ }
+ const f=$('feedback');f.className='feedback show'+(ok?'':' bad');f.innerHTML=`<strong>${ok?'✓ Bonne réponse !':'✕ À revoir — compare avec la correction.'}</strong><br>${esc(q.e)}<br><br><b>Exemple de correction :</b><pre class="codebox">${esc(q.a[q.c])}</pre>`;
+ $('scoreLive').textContent='SCORE '+score;$('progress').style.width=((idx+1)/quiz.length*100)+'%';
+ $('validate').textContent=idx===quiz.length-1?'Voir le résultat ↗':'Question suivante ↗';$('validate').onclick=()=>advance(true);$('skip').textContent='Quitter la séance';$('skip').onclick=()=>{if(confirm('Quitter le quiz ?'))backHome()};
+}
+function advance(){if(idx<quiz.length-1){idx++;renderQ()}else showResult()}
+function showResult(){
+ $('quiz').style.display='none';$('result').style.display='block';$('progress').style.width='100%';
+ const n=quiz.length,percent=Math.round(score/n*100);$('finalScore').textContent=score+'/'+n;$('resultTitle').textContent=percent>=80?'Excellent travail !':percent>=50?'Tu progresses, continue !':'C’est le moment de consolider les bases.';
+ $('resultText').textContent=`Tu as obtenu ${percent} %. Consulte les corrections pour comprendre chaque réponse, puis relance une séance sur les thèmes à renforcer.`;$('review').style.display='inline-block';window.scrollTo({top:0,behavior:'smooth'});
+}
+$('review').onclick=()=>{reviewMode=true;idx=0;$('result').style.display='none';$('quiz').style.display='block';renderReview();window.scrollTo({top:0,behavior:'smooth'})};
+function renderReview(){
+ const q=quiz[idx],a=answers[idx];$('quizKicker').textContent='CORRECTION / '+String(idx+1).padStart(2,'0');$('scoreLive').textContent='SCORE '+score;$('progress').style.width=((idx+1)/quiz.length*100)+'%';
+ $('qcard').innerHTML=`<div class="qmeta"><span class="pill">${labels[q.t]}</span><span class="pill">${a?(a.ok?'RÉUSSI':'À REVOIR'):'SANS RÉPONSE'}</span></div><h2 class="qtitle">${esc(q.q)}</h2>${q.code?`<pre class="codebox">${esc(q.code)}</pre>`:''}<div class="answers">${q.a.map((v,i)=>`<div class="answer ${i===q.c?'correct':a&&i===a.choice?'wrong':''}">${i===q.c?'✓ ':''}${esc(v)}</div>`).join('')}</div><div class="feedback show"><b>Explication</b><br>${esc(q.e)}</div><div class="actions"><button class="secondary" id="prev" ${idx===0?'disabled':''}>← Précédente</button><button class="primary" id="next">${idx===quiz.length-1?'Terminer la correction':'Suivante →'}</button></div>`;
+ $('prev').onclick=()=>{if(idx>0){idx--;renderReview()}};$('next').onclick=()=>{if(idx<quiz.length-1){idx++;renderReview()}else{reviewMode=false;backHome()}};
+}
+function backHome(){$('quiz').style.display='none';$('result').style.display='none';$('landing').style.display='block';window.scrollTo({top:0,behavior:'smooth'})}
+$('start').onclick=startQuiz;$('again').onclick=backHome;$('quit').onclick=backHome;
+</script>
+</body>
+</html>
